@@ -4,7 +4,7 @@ import csv
 import os
 from datetime import datetime
 
-if rocket = 'all':
+if rocket == 'all':
     rocket = ''
 else:
     rocket = rocket
