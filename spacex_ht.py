@@ -20,13 +20,13 @@ for rock in spacexrockets:
     t1 = BashOperator(
         task_id='get_data_' + str(rock),
         bash_command="python3 /root/airflow/dags/spacex/load_launches.py -y {{ execution_date.year }} -r {{ params.rocket }} -o /var/data_ht", 
-        params={"rocket": rock },
+        params={"rocket": str(rock) },
         dag=dag
     )
     t2 = BashOperator(
         task_id='print_data_' +str(rock), 
         bash_command="cat /var/data_ht/year={{ execution_date.year }}/rocket={{ params.rocket }}/data.csv", 
-        params={"rocket": rock }, # falcon1/falcon9/falconheavy
+        params={"rocket": str(rock) }, # falcon1/falcon9/falconheavy
         dag=dag
     )
     t1 >> t2
