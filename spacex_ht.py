@@ -19,7 +19,8 @@ spacexrockets = ['falcon1', 'falcon9', 'falconheavy', 'all']
 for rock in spacexrockets:
     t1 = BashOperator(
         task_id="get_data",
-        bash_command="python3 /root/airflow/dags/spacex/load_launches.py -y {{ execution_date.year }} -r rock.str -o /var/data_ht", 
+        bash_command="python3 /root/airflow/dags/spacex/load_launches.py -y {{ execution_date.year }} -r {{ params.rocket }} -o /var/data_ht", 
+        params={"rocket": rock },
         dag=dag
     )
 
