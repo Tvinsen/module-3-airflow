@@ -18,14 +18,14 @@ dag = DAG("spacex_ht", default_args=default_args, schedule_interval="0 0 1 1 *")
 spacexrockets = ['falcon1', 'falcon9', 'falconheavy', 'all']
 for rock in spacexrockets:
     t1 = BashOperator(
-        task_id="get_data".format(rock),
+        task_id='get_data_' + str(rock),
         bash_command="python3 /root/airflow/dags/spacex/load_launches.py -y {{ execution_date.year }} -r {{ params.rocket }} -o /var/data_ht", 
         params={"rocket": rock },
         dag=dag
     )
 
     t2 = BashOperator(
-        task_id="print_data".format(rock), 
+        task_id='print_data_' +str(rock), 
         bash_command="cat /var/data_ht/year={{ execution_date.year }}/rocket={{ params.rocket }}/data.csv", 
         params={"rocket": rock }, # falcon1/falcon9/falconheavy
         dag=dag
