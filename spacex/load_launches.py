@@ -19,14 +19,14 @@ def parse_launch_record(r: dict):
         r['launch_failure_details']['reason'] if 'launch_failure_details' in r else '',
     ]
 
-if rocket == 'all':
-    rocket = ''
-else:
-    rocket = rocket
 
 def load_json(launch_year: int, rocket: str):
     url = 'https://api.spacexdata.com/v3/launches/past'
     payload = {'launch_year': launch_year}
+    if rocket == 'all':
+        rocket = ''
+    else:
+        rocket = rocket
     if rocket != '':
         payload['rocket_id'] = rocket
     headers = {}
