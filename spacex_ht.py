@@ -22,6 +22,7 @@ t1 = BashOperator(
     dag=dag
 )
 
+for i in [falcon1,falcon9,falconheav]:
 t2 = BashOperator(
     task_id="print_data", 
     bash_command="cat /var/data_ht/year={{ execution_date.year }}/rocket={{ params.rocket }}/data.csv", 
