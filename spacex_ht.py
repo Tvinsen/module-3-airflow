@@ -7,9 +7,9 @@ default_args = {
     "owner": "airflow",
     "depends_on_past": False,
     "start_date": datetime(2005, 1, 1),
-    "email": ["airflow@airflow.com"],
-    "email_on_failure": False,
-    "email_on_retry": False,
+    "email": ["tvinsen.nsk@gmail.com"],
+    "email_on_failure": True,
+    "email_on_retry": True,
     "retries": 0,
     "retry_delay": timedelta(minutes=5),
 }
