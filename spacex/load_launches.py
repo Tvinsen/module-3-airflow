@@ -4,10 +4,6 @@ import csv
 import os
 from datetime import datetime
 
-if rocket == 'all':
-    rocket = ''
-else:
-    rocket = rocket
 
 def parse_launch_record(r: dict):
     return [
@@ -22,6 +18,11 @@ def parse_launch_record(r: dict):
         r['launch_success'],
         r['launch_failure_details']['reason'] if 'launch_failure_details' in r else '',
     ]
+
+if rocket == 'all':
+    rocket = ''
+else:
+    rocket = rocket
 
 def load_json(launch_year: int, rocket: str):
     url = 'https://api.spacexdata.com/v3/launches/past'
