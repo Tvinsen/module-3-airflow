@@ -15,7 +15,7 @@ default_args = {
 }
 
 dag = DAG("spacex_ht", default_args=default_args, schedule_interval="0 0 1 1 *")
-spacexrockets = ['', 'falcon1', 'falcon9', 'falconheavy']
+spacexrockets = ['all', 'falcon1', 'falcon9', 'falconheavy']
 for rock in spacexrockets:
     t1 = BashOperator(
         task_id='get_data_' + str(rock),
