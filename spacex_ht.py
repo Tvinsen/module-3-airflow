@@ -8,8 +8,8 @@ default_args = {
     "depends_on_past": False,
     "start_date": datetime(2005, 1, 1),
     "email": ["tvinsen.nsk@gmail.com"],
-    "email_on_failure": True,
-    "email_on_retry": True,
+    "email_on_failure": False,
+    "email_on_retry": False,
     "retries": 0,
     "retry_delay": timedelta(minutes=5),
 }
