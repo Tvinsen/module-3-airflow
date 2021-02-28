@@ -30,4 +30,4 @@ git_pull = BashOperator(
     bash_command='git -C /root/airflow/dags/ pull',
     dag=dag,
 )
-latest_only >> git_pull
+
