@@ -23,7 +23,6 @@ for rock in spacexrockets:
         params={"rocket": rock },
         dag=dag
     )
-
     t2 = BashOperator(
         task_id='print_data_' +str(rock), 
         bash_command="cat /var/data_ht/year={{ execution_date.year }}/rocket={{ params.rocket }}/data.csv", 
