@@ -4,6 +4,10 @@ import csv
 import os
 from datetime import datetime
 
+if rocket = 'all':
+    rocket = ''
+else:
+    rocket = rocket
 
 def parse_launch_record(r: dict):
     return [
